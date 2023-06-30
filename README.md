@@ -5,3 +5,5 @@ This website can display blog-posts and the viewers can view the blogs and searc
 The files are properly configured but if in-case you find that the CSS file is not functioning properly then do try running the app at a different port using the command -> python manage.py runserver 'port-number'
 
 The superuser id password is provided in the settings file to access the Django-Admin-Panel ie the database in other words.
+
+Currently, I have focused more on the working of the project and I am going to edit the UI and add more features to this App.
