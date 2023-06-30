@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Blog{% endblock title %}
+
+{% if user.is_authenticated %}
+
+{% block Blog %}
+
+<div class="profile-container">
+    <h1 class="profile-title">Welcome {{request.user|capfirst}}, Add Your Blog </h1>
+
+    <form action="" method="post" class="blog-form">
+        {% csrf_token %}
+        <h1>Add a Blog</h1>
+
+        <label for="name">Name</label>
+        <input type="text" placeholder="Name" name="blogger">
+        <br>
+
+        <label for="title">Title of Blog</label>
+        <input type="text" placeholder="Title" name='title'>
+        <br>
+
+        <label for="blog">Start writing</label>
+        <input type="text" placeholder="Start Writing" name="content"><br>
+
+        <input type="date" placeholder="dd-mm-yy" name="date"> <br>
+        <input type="time" name="time"><br>
+        
+        <input type="submit" value="Submit" class="btn">
+    </form>
+
+
+    <div class="blog-container">
+        {% for n in data %}
+            {{n.title}}
+        {% endfor %}
+    </div>
+
+    {% if messages %}
+        {% for msg in messages  %}
+            <div class="mssg">
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    
+
+</div>
+
+{% endblock Blog %}
+{% endif %}

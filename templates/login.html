@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+
+
+
+{% block Login %}
+<div class="form-container">
+    <h1 class="form-heading">Login</h1>
+
+    <form action="" method="post" class="form" >
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="Enter Username">
+
+            <br>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Enter Password">
+        </div>
+
+        <button type="submit" class="btn">Submit</button>
+
+        <div class="text"><small>Not a User ? <a href="{% url 'register' %}">Register</a></small></div>
+    </form>
+
+    {% if messages %}
+        {% for msg in messages  %}
+            <div class="mssg">
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+
+</div>
+{% endblock Login %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Register{% endblock title %}
+
+{% block Register %}
+<div class="form-container">
+    <h1 class="form-heading">Register</h1>
+   
+
+    <form action="" method="post" nonvalidate>
+        {% csrf_token %}
+
+        {% for fn in form %}
+        {{fn.label_tag}} {{fn}}
+        <small class="tags">{{fn.errors|striptags}}</small><br>
+        {% endfor %}
+
+
+        <input type="submit" value="Submit" class="btn"> <br>
+
+        <div class="text"><small>Existing User ? <a href="{% url 'login' %}">Login</a> </small></div>
+
+        {% if form.non_field_erros %}
+            {% for error in form.non_field_erros %}
+                <p class="reg-error">{{error}}</p>
+            {% endfor %}
+        {% endif %}
+
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="mssg">
+                    {{msg}}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </form>
+
+
+
+</div>
+{% endblock Register %}

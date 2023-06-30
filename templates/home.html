@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block Home %}
+<div class="home-container">
+    <h1 class="home-title">Read Some recently uploaded blogs</h1>
+
+    <div class="blog-container">
+        {% for a in blog %}
+        <div class="blog">
+            <h1 class="blog-title">
+                {{a.title}}
+            </h1>    
+            <p class="blog-content">
+                {{a.content}}
+            </p>
+            <h1 class="blog-blogger">
+                Developed by :  {{a.blogger}}
+            </h1>
+            <h1 class="blog-date">
+                Developed at : {{a.date}}/{{a.time}}
+            </h1>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock Home %}
