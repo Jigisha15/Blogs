@@ -121,6 +121,7 @@ body {
 .blog-container {
   display: grid;
   grid-template-columns: 25rem 25rem 25rem;
+  gap: 2rem;
 }
 
 /* ADD BLOG */
